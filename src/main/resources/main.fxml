@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.rectApp.MainController">
+
+    <!-- Левая панель — область для прямоугольника -->
+    <Pane fx:id="drawPane"
+          minWidth="0"
+          prefHeight="500"
+          style="-fx-border-color: black;"
+          HBox.hgrow="ALWAYS">
+        <children>
+            <Rectangle fx:id="rectangle"
+                       x="100" y="60" width="220" height="100"
+                       fill="WHITE" stroke="BLACK"/>
+        </children>
+    </Pane>
+
+    <!-- Правая панель — управление -->
+    <VBox fx:id="controlPane"
+          minWidth="280" prefWidth="280" maxWidth="280"
+          spacing="10"
+          style="-fx-padding: 20; -fx-border-color: black;">
+        <children>
+
+            <Label fx:id="coordLabel"
+                   text="Координаты прямоугольника:&#10;X = 100, Y = 60"/>
+            <Label text="X:"/>
+            <TextField fx:id="xField" text="100"/>
+            <Label text="Y:"/>
+            <TextField fx:id="yField" text="60"/>
+            <Button fx:id="setButton"
+                    text="Установить координаты"
+                    onAction="#handleSetButton"/>
+            <Label fx:id="warningLabel"
+                   textFill="red"/>
+        </children>
+    </VBox>
+</HBox>
